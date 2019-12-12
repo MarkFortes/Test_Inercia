@@ -66,6 +66,7 @@ function dibujarVelocidad(){
 }
 //////////////////////////////////////////
 function logicaCuadrado(){
+    ////Incremento de la velocidad del cuadrado//////////////////////
     if(teclaDerPulsada == true){
         cuadrado.x += marchaAdelante;
         marchaAdelante += potencia;
@@ -76,7 +77,7 @@ function logicaCuadrado(){
         marchaAtras += potencia;
         velocidad += potencia;
     }
-    //////////////////////////
+    ////Decremento de la velocidad del cuadrado//////////////////////
     if(teclaDerPulsada == false && marchaAdelante > 0){
         cuadrado.x += marchaAdelante;
         marchaAdelante -= potencia;
@@ -87,4 +88,10 @@ function logicaCuadrado(){
         marchaAtras -= potencia;
         velocidad -= potencia;
     }
+    ////Reaparición cuando sale del canvas//////////////////////
+    if(cuadrado.x > canvas.width + 20){
+        cuadrado.x = -20;
+    }else if(cuadrado.x < -20){
+        cuadrado.x = canvas.width + 20;
+    }    
 }
